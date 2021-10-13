@@ -1,3 +1,15 @@
-# empty-Webpack
+# 🚀 Welcome to your new awesome project!
 
-empty webpack project just for quick setup for experimenting
+This project has been created using **webpack-cli**, you can now run
+
+```
+npm run build
+```
+
+or
+
+```
+yarn build
+```
+
+to bundle your application
