@@ -16,6 +16,10 @@ export default class Canvas {
         window.requestAnimationFrame(this.draw);
 
     }
+
+    /**
+     * When user resize window update canvas ONLY if isActive
+     */
     onResizeUpdate = () => {
         if(!this.isActive) return;
         this.width = window.innerWidth;
@@ -24,6 +28,9 @@ export default class Canvas {
         this.canvas.height = this.height;
         this.#initCanvas();
     }
+    /**
+     * Initialize canvas
+     */
     #initCanvas = () => {
         this.isActive = true;
         this.initialBackgroundColor = '#000000';
@@ -31,35 +38,67 @@ export default class Canvas {
         this.ctx.fillStyle = this.initialBackgroundColor;
         this.ctx.fillRect(0, 0, this.width, this.height);
     }
+    /**
+     * Unmount canvas
+     */
     unmount = () => {
         this.canvas.width = 0;
         this.canvas.height = 0;
         this.isActive = false;
     }
+    /**
+     * Mount canvas
+     */
+    mount = () => {
+        this.#initCanvas();
+        this.width = window.innerWidth;
+        this.height = window.innerHeight;
+        this.canvas.width = this.width;
+        this.canvas.height = this.height;
+        this.draw();
+    }
+    /**
+     * Clear canvas with background color
+     */
     clearCanvas = () => {
         this.ctx.fillStyle = this.canvasColor;
         this.ctx.fillRect(0, 0, this.width, this.height);
     }
-
+    /**
+     * Returns instance of canvas Method required by components !
+     * @returns {Canvas}
+     */
     getCanvas = () => {
         return this;
     }
-
+    /**
+     * Add component to the canvas
+     * @param component
+     */
     addComponent = (component) => {
         this.components.push(component);
     }
+    /**
+     * Remove component from canvas
+     * @param component
+     */
     removeComponent = (component) => {
         console.log(component);
         this.components = this.components.filter(item => {
             return item !== component;
         });
     }
+    /**
+     * Draw all currently mounted components on canvas
+     */
     drawComponents = () => {
         this.components.forEach(component => {
             component.draw();
         })
     }
-
+    /**
+     * Main draw loop
+     */
     draw = () => {
         this.frame++;
         if(this.frame !== 0 && (this.frame % 60) === 0){

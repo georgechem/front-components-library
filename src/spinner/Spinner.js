@@ -1,4 +1,8 @@
-
+/**
+ * Canvas COMPONENT - Method draw required by Canvas
+ * Method draw should contain all other methods responsible
+ * for complete drawing of element
+ */
 export default class Spinner {
     constructor(canvas){
         this.angle = 0;
