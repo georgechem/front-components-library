@@ -1,0 +1,76 @@
+
+export default class Canvas {
+    constructor(canvas, update = false){
+        this.canvas = canvas;
+        this.frame = 0;
+        this.width = window.innerWidth;
+        this.height = window.innerHeight;
+        this.canvas.width = this.width;
+        this.canvas.height = this.height;
+        this.components = [];
+        this.ctx = this.canvas.getContext('2d');
+        if(update){
+            window.onresize = this.onResizeUpdate;
+        }
+        this.#initCanvas();
+        window.requestAnimationFrame(this.draw);
+
+    }
+    onResizeUpdate = () => {
+        if(!this.isActive) return;
+        this.width = window.innerWidth;
+        this.height = window.innerHeight;
+        this.canvas.width = this.width;
+        this.canvas.height = this.height;
+        this.#initCanvas();
+    }
+    #initCanvas = () => {
+        this.isActive = true;
+        this.initialBackgroundColor = '#000000';
+        this.canvasColor = this.initialBackgroundColor;
+        this.ctx.fillStyle = this.initialBackgroundColor;
+        this.ctx.fillRect(0, 0, this.width, this.height);
+    }
+    unmount = () => {
+        this.canvas.width = 0;
+        this.canvas.height = 0;
+        this.isActive = false;
+    }
+    clearCanvas = () => {
+        this.ctx.fillStyle = this.canvasColor;
+        this.ctx.fillRect(0, 0, this.width, this.height);
+    }
+
+    getCanvas = () => {
+        return this;
+    }
+
+    addComponent = (component) => {
+        this.components.push(component);
+    }
+    removeComponent = (component) => {
+        console.log(component);
+        this.components = this.components.filter(item => {
+            return item !== component;
+        });
+    }
+    drawComponents = () => {
+        this.components.forEach(component => {
+            component.draw();
+        })
+    }
+
+    draw = () => {
+        this.frame++;
+        if(this.frame !== 0 && (this.frame % 60) === 0){
+            console.log(this.frame);
+        }
+        this.clearCanvas();
+
+        this.drawComponents();
+
+        if(this.frame > 600) return;
+        if(this.isActive) window.requestAnimationFrame(this.draw);
+    }
+
+}
