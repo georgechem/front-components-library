@@ -18,6 +18,7 @@ import Canvas from './canvas/Canvas.js';
 const canvas = new Canvas(document.getElementById('canvas'), true);
 ```
 Spinner Component:
+
 ![image](http://github.com/georgechem/front-components-library/blob/main/src/spinnerComponent.png)
 
 Exemplary component can be used:
