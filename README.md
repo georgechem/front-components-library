@@ -1,3 +1,4 @@
+
 # 🚀 Library with front-end component!
 ```
 npm run build
@@ -45,4 +46,3 @@ To remove component from canvas use:
 // Component can be removed
 canvas.removeComponent(spinner);
 ```
-
