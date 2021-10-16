@@ -33,7 +33,15 @@ export default class Canvas {
      */
     #initCanvas = () => {
         this.isActive = true;
-        this.initialBackgroundColor = '#000000';
+        this.linearGradient = this.ctx.createLinearGradient(
+            0, 0,
+            this.canvas.width,
+            this.canvas.height
+        );
+        this.linearGradient.addColorStop(0, '#336600');
+        this.linearGradient.addColorStop(0.5,'#997700');
+        this.linearGradient.addColorStop(1, '#225500');
+        this.initialBackgroundColor = this.linearGradient;
         this.canvasColor = this.initialBackgroundColor;
         this.ctx.fillStyle = this.initialBackgroundColor;
         this.ctx.fillRect(0, 0, this.width, this.height);
@@ -102,7 +110,7 @@ export default class Canvas {
     draw = () => {
         this.frame++;
         if(this.frame !== 0 && (this.frame % 60) === 0){
-            console.log(this.frame);
+            //console.log(this.frame);
         }
         this.clearCanvas();
 
