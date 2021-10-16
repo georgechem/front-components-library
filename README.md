@@ -19,7 +19,7 @@ const canvas = new Canvas(document.getElementById('canvas'), true);
 ```
 Spinner Component:
 
-![image](http://github.com/georgechem/front-components-library/blob/main/src/spinnerComponent.png)
+![image](https://github.com/georgechem/front-components-library/blob/main/spinnerComponent.png)
 
 Exemplary component can be used:
 ```javascript
