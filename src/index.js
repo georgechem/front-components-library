@@ -11,11 +11,15 @@ const spinner = new Spinner(canvas);
 canvas.addComponent(spinner);
 // Component can be removed
 //canvas.removeComponent(spinner);
-// canvas can be unmount
+
+
+/*
 setTimeout(() => {
+    // canvas can be unmount
     canvas.unmount();
 }, 1000)
 setTimeout(() => {
     // and mount again
     canvas.mount();
 }, 2000)
+*/
