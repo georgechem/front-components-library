@@ -38,9 +38,9 @@ export default class Canvas {
             this.canvas.width,
             this.canvas.height
         );
-        this.linearGradient.addColorStop(0, '#336600');
-        this.linearGradient.addColorStop(0.5,'#997700');
-        this.linearGradient.addColorStop(1, '#225500');
+        this.linearGradient.addColorStop(0, '#114400');
+        this.linearGradient.addColorStop(0.5,'#775500');
+        this.linearGradient.addColorStop(1, '#113300');
         this.initialBackgroundColor = this.linearGradient;
         this.canvasColor = this.initialBackgroundColor;
         this.ctx.fillStyle = this.initialBackgroundColor;

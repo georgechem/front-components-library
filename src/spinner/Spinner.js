@@ -11,7 +11,7 @@ export default class Spinner {
         this.color = `rgba(${this.rgba[0]}, ${this.rgba[1]}, ${this.rgba[2]}, ${this.rgba[3]})`;
         this.frame = {
                 col: {
-                    r: 0, g: 0, b: 0, a: 0.5
+                    r: 0, g: 0, b: 0, a: 0.75
                 },
                 radius: 99,
                 elementRadius: 65,
